@@ -44,6 +44,8 @@ class CandidatoController extends Controller
 
     public function show($id)
     {   
-        //
+        $candidato = Candidato::findOrFail($id);
+
+        return view('candidatos.show', ['candidato' => $candidato]);
     }
 }

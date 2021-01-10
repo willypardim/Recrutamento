@@ -24,10 +24,16 @@
                 <p class="card-text"><strong>Email:</strong> {{ $candidato->email }}</p>
                 <p class="card-text"><strong>Idade:</strong> {{ $candidato->idade }}</p>
                 <p class="card-text"><strong>URL Linkedin:</strong> {{ $candidato->linkedin }}</p>
-                <a href="#" class="btn btn-primary">Saber mais</a>
+                <a href="{{ route('candidato.show', $candidato->id)}}" class="btn btn-primary">Saber mais</a>
                 </div>
             </div> 
         @endforeach
+
+        @empty($candidato)
+            <div class="alert alert-primary" role="alert">
+                Não há candidatos cadastrados! <a href={{  route('candidato.create')  }} class="alert-link">Clique aqui</a> para adicionar.
+            </div>
+        @endempty 
     </div>
 @endsection
 
