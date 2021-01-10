@@ -11,11 +11,19 @@ class CandidatoController extends Controller
 
     public function index()
     {
-        $candidatos = "";
+        $search = request('search');
 
-        $candidatos = Candidato::all();
+        if($search){
 
-        return view('candidatos.index', ['candidatos' => $candidatos]);
+            $candidatos = Candidato::where([
+                ['competencias', 'like', '%'.$search.'%']
+            ])->get();
+
+        }else{
+            $candidatos = Candidato::all();
+        }
+
+        return view('candidatos.index', ['candidatos' => $candidatos, 'search' => $search]);
     }
 
     public function create()

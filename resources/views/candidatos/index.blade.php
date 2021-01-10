@@ -7,13 +7,50 @@
         <a href="{{ route('candidato.create') }}" class="bg-info p-1 btn btn text-white">Cadastrar candidato</a>
 
     </div>
-
+    
     <div class="container col-8 bg-white mt-3 p-4">
         <p class="lead text-center">
             <strong>
-                Candidaturas
+                Busque um candidato por conhecimentos
             </strong>
         </p>
+        <form action="{{ route('candidato.index')}} " method="GET">
+            <div class="input-group mb-3">
+                <select name="search" id="search" class="form-control">
+                    <option value="">Escolha uma tecnologia para filtrar</option>
+                    <option value="C#">C#</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Nodejs">Nodejs</option>
+                    <option value="Angular">Angular</option>
+                    <option value="React">React</option>
+                    <option value="Ionic">Ionic</option>
+                    <option value="Mensageria">Mensageria</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Laravel">Laravel</option>
+                </select>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+
+    <div class="container col-8 bg-white mt-3 p-4">
+        @if ($search)
+            <p class="lead text-center">
+                <strong>
+                    Buscando candidatos com habilidades em: {{ $search }}
+                </strong>
+            </p>
+        @else
+            <p class="lead text-center">
+                <strong>
+                    Candidatos
+                </strong>
+            </p>
+        @endif
+        
         @foreach ($candidatos as $candidato) 
             <div class="card mt-3">
                 <div class="card-header bg-white">
@@ -29,11 +66,13 @@
             </div> 
         @endforeach
 
-        @empty($candidato)
+        @if (count($candidatos) == 0 && $search)
+            <p>Não foi possível encontrar candidatos com conhecimentos em {{ $search }} <a href="{{ route('candidato.index') }}">Ver tudo</a></p>
+        @elseif(count($candidatos) == 0)
             <div class="alert alert-primary" role="alert">
                 Não há candidatos cadastrados! <a href={{  route('candidato.create')  }} class="alert-link">Clique aqui</a> para adicionar.
             </div>
-        @endempty 
+        @endif
     </div>
 @endsection
 

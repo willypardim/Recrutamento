@@ -4,7 +4,6 @@
     
 @section('conteudo')
   
-
     <div class="container col-8 bg-white mt-3 p-4">
         <p class="lead text-center">
             <strong>
