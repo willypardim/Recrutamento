@@ -11,7 +11,11 @@ class CandidatoController extends Controller
 
     public function index()
     {
-        return view('candidatos.index');
+        $candidatos = "";
+
+        $candidatos = Candidato::all();
+
+        return view('candidatos.index', ['candidatos' => $candidatos]);
     }
 
     public function create()
@@ -36,5 +40,10 @@ class CandidatoController extends Controller
         } catch (\Throwable $th) {
             return view('candidatos.catch.catch');
         }      
+    }
+
+    public function show($id)
+    {   
+        //
     }
 }
