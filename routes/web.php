@@ -19,4 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/candidato', [App\Http\Controllers\CandidatoController::class, 'index'])->name('candidato.index');
+    Route::get('/candidato/create', [App\Http\Controllers\CandidatoController::class, 'create'])->name('candidato.create');
+    Route::post('/candidato', [App\Http\Controllers\CandidatoController::class, 'store'])->name('candidato.store');
+
+});
