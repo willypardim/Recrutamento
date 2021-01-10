@@ -4,6 +4,6 @@
     
 @section('conteudo')
 
-<a href="{{ route('candidato.create') }}">Cadastrar candidato</a>
+<a href="{{ route('candidato.create') }}" class="teste">Cadastrar candidato</a>
 @endsection
 

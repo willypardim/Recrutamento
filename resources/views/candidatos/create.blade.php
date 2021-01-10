@@ -3,10 +3,16 @@
 @section('title', 'Cadastro candidato')
     
 @section('conteudo')
-    <h1>pagina de cadastro</h1>
-    <form action="{{ route('candidato.store') }}" method="POST">
-        @include('candidatos.includes.form')
-    </form>
+    <div class="container col-8 bg-white mt-5 p-5">
+        <p class="lead text-center">
+            <strong>
+                Cadastre um candidato
+            </strong>
+        </p>
+        <form action="{{ route('candidato.store') }}" method="POST">
+            @include('candidatos.includes.form')
+        </form>
+    </div>
 @endsection
 
 
