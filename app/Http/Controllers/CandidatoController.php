@@ -56,4 +56,11 @@ class CandidatoController extends Controller
 
         return view('candidatos.show', ['candidato' => $candidato]);
     }
+
+    public function destroy($id)
+    {
+        Candidato::findOrFail($id)->delete();
+        
+        return redirect()->route('candidato.index');
+    }
 }

@@ -64,4 +64,6 @@
     <br>
     
     <input type="submit" class="btn btn-primary mt-3" value="Cadastrar candidato">
+
+    <a href="{{ route('candidato.index')}}" class="btn btn-danger mt-3">Cancelar</a>
     

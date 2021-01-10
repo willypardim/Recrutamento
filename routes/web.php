@@ -24,5 +24,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/candidato/create', [App\Http\Controllers\CandidatoController::class, 'create'])->name('candidato.create');
     Route::get('/candidato/{id}', [App\Http\Controllers\CandidatoController::class, 'show'])->name('candidato.show');
     Route::post('/candidato', [App\Http\Controllers\CandidatoController::class, 'store'])->name('candidato.store');
+    Route::any('/candidato/delete/{id}', [App\Http\Controllers\CandidatoController::class, 'destroy'])->name('candidato.destroy');
 
 });

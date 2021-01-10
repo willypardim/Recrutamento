@@ -61,7 +61,15 @@
                 <p class="card-text"><strong>Email:</strong> {{ $candidato->email }}</p>
                 <p class="card-text"><strong>Idade:</strong> {{ $candidato->idade }}</p>
                 <p class="card-text"><strong>URL Linkedin:</strong> {{ $candidato->linkedin }}</p>
-                <a href="{{ route('candidato.show', $candidato->id)}}" class="btn btn-primary">Saber mais</a>
+
+                <div class="btn-group" role="group" aria-label="Exemplo básico">
+                    <a href="{{ route('candidato.show', $candidato->id)}}" class="btn btn-primary mr-2">Saber mais</a>
+                    <form action="{{ route('candidato.destroy', $candidato->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger">Deletar candidato</button>
+                    </form>
+                  </div>
                 </div>
             </div> 
         @endforeach
