@@ -64,6 +64,7 @@
 
                 <div class="btn-group" role="group" aria-label="Exemplo básico">
                     <a href="{{ route('candidato.show', $candidato->id)}}" class="btn btn-primary mr-2">Saber mais</a>
+                    <a href="{{ route('candidato.edit', $candidato->id)}}" class="btn btn-success mr-2">Editar</a>
                     <form action="{{ route('candidato.destroy', $candidato->id)}}" method="POST">
                         @csrf
                         @method('DELETE')

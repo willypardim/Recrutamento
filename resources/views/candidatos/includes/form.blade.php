@@ -4,22 +4,22 @@
 
     <div class="form-group">
         <label for="formGroupExampleInput">Nome Candidato</label>
-        <input type="text" class="form-control" name="nome" id="nome" value="{{ old('nome') }}" placeholder="Nome Candidato">
+        <input type="text" class="form-control" name="nome" id="nome" value="{{ $candidato->nome ?? old('nome') }}" placeholder="Nome Candidato">
     </div>
 
     <div class="form-group">
         <label for="formGroupExampleInput">Email</label>
-        <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}" placeholder="Email">
+        <input type="text" class="form-control" name="email" id="email" value="{{ $candidato->email ?? old('email') }}" placeholder="Email">
     </div>
 
     <div class="form-group">
         <label for="formGroupExampleInput">Idade</label>
-        <input type="number" class="form-control" name="idade" id="idade" value="{{ old('idade') }}" placeholder="Idade">
+        <input type="number" class="form-control" name="idade" id="idade" value="{{ $candidato->idade ?? old('idade') }}" placeholder="Idade">
     </div>
 
     <div class="form-group">
         <label for="formGroupExampleInput">URL Linkedin</label>
-        <input type="text" class="form-control" name="linkedin" id="linkedin" value="{{ old('linkedin') }}" placeholder="Url Linkedin">
+        <input type="text" class="form-control" name="linkedin" id="linkedin" value="{{ $candidato->linkedin ?? old('linkedin') }}" placeholder="Url Linkedin">
     </div>
 
     <p>Adicione suas competências</p>

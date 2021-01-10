@@ -25,5 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/candidato/{id}', [App\Http\Controllers\CandidatoController::class, 'show'])->name('candidato.show');
     Route::post('/candidato', [App\Http\Controllers\CandidatoController::class, 'store'])->name('candidato.store');
     Route::any('/candidato/delete/{id}', [App\Http\Controllers\CandidatoController::class, 'destroy'])->name('candidato.destroy');
-
+    Route::any('/candidato/edit/{id}', [App\Http\Controllers\CandidatoController::class, 'edit'])->name('candidato.edit');
+    Route::any('/home/processo/update/{id}', [App\Http\Controllers\CandidatoController::class, 'update'])->name('candidato.update');
 });

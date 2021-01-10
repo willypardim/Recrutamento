@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUpdateCandidatoRequest;
 use App\Models\Candidato;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CandidatoController extends Controller
 {
@@ -59,8 +60,35 @@ class CandidatoController extends Controller
 
     public function destroy($id)
     {
-        Candidato::findOrFail($id)->delete();
+        try {
+            Candidato::findOrFail($id)->delete();
         
-        return redirect()->route('candidato.index');
+            return redirect()->route('candidato.index');
+        } catch (\Throwable $th) {
+            return view('candidatos.catch.catch');
+        }
+        
+    }
+
+    public function edit($id)
+    {
+        if(!$candidato = Candidato::find($id))
+        return redirect()->back();
+
+        return view('candidatos.edit', compact('candidato'));
+    }
+
+    public function update(StoreUpdateCandidatoRequest $request, $id)
+    {
+        try {
+            if(!$candidato = Candidato::find($id))
+            return redirect()->back();
+
+            $candidato->update($request->all());
+
+            return redirect()->route('candidato.index');
+        } catch (\Throwable $th) {
+            return view('candidatos.catch.catch');
+        }
     }
 }
