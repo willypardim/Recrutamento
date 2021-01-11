@@ -45,7 +45,7 @@ class CandidatoController extends Controller
     
             $candidato->save();
         
-        return redirect()->route('candidato.index');
+        return redirect()->route('success.success');
         } catch (\Throwable $th) {
             return view('candidatos.catch.catch');
         }      

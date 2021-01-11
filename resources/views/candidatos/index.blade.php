@@ -3,10 +3,6 @@
 @section('title', 'Home')
     
 @section('conteudo')
-    <div class="col-12 text-right">
-        <a href="{{ route('candidato.create') }}" class="bg-info p-1 btn btn text-white">Cadastrar candidato</a>
-
-    </div>
     
     <div class="container col-8 bg-white mt-3 p-4">
         <p class="lead text-center">
@@ -57,20 +53,20 @@
                     Candidatura Nº: {{ $candidato->id }}
                 </div>
                 <div class="card-body">
-                <p class="card-text"><strong>Candidato:</strong> {{ $candidato->nome }}</p>
-                <p class="card-text"><strong>Email:</strong> {{ $candidato->email }}</p>
-                <p class="card-text"><strong>Idade:</strong> {{ $candidato->idade }}</p>
-                <p class="card-text"><strong>URL Linkedin:</strong> {{ $candidato->linkedin }}</p>
+                    <p class="card-text"><strong>Candidato:</strong> {{ $candidato->nome }}</p>
+                    <p class="card-text"><strong>Email:</strong> {{ $candidato->email }}</p>
+                    <p class="card-text"><strong>Idade:</strong> {{ $candidato->idade }}</p>
+                    <p class="card-text"><strong>URL Linkedin:</strong> {{ $candidato->linkedin }}</p>
 
-                <div class="btn-group" role="group" aria-label="Exemplo básico">
-                    <a href="{{ route('candidato.show', $candidato->id)}}" class="btn btn-primary mr-2">Saber mais</a>
-                    <a href="{{ route('candidato.edit', $candidato->id)}}" class="btn btn-success mr-2">Editar</a>
+                    <div class="btn-group" role="group" aria-label="Exemplo básico">
+                        <a href="{{ route('candidato.show', $candidato->id)}}" class="btn btn-primary mr-2">Saber mais</a>
+                        <a href="{{ route('candidato.edit', $candidato->id)}}" class="btn btn-success mr-2">Editar</a>
+                    </div>
                     <form action="{{ route('candidato.destroy', $candidato->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-outline-danger">Deletar candidato</button>
+                        <button type="submit" class="btn btn-outline-danger mt-3">Deletar candidato</button>
                     </form>
-                  </div>
                 </div>
             </div> 
         @endforeach

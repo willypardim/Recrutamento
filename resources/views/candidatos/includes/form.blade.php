@@ -23,7 +23,6 @@
     </div>
 
     <p>Adicione suas competências</p>
-   
 
     <div class="form-check form-check-inline">
         <input type="checkbox" class="form-check-input" id="inlineCheckbox1" name="competencias[]" value="C#">
@@ -65,5 +64,4 @@
     
     <input type="submit" class="btn btn-primary mt-3" value="Cadastrar candidato">
 
-    <a href="{{ route('candidato.index')}}" class="btn btn-danger mt-3">Cancelar</a>
     

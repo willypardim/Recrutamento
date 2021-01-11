@@ -13,6 +13,7 @@
             @csrf
             @method('PUT')
             @include('candidatos.includes.form')
+            <a href="{{ route('candidato.index')}}" class="btn btn-danger mt-3">Cancelar</a>
         </form>
     </div>
 @endsection
