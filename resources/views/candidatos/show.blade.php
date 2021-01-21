@@ -3,7 +3,7 @@
 @section('title', 'Home')
     
 @section('conteudo')
-  
+    @include('candidatos.layouts.top-complet')
     <div class="container col-8 bg-white mt-3 p-4">
         <p class="lead text-center">
             <strong>
@@ -31,7 +31,7 @@
             <dt class="col-sm-3">URL Linkedin</dt>
             <dd class="col-sm-9">{{$candidato->linkedin}}</dd>
 
-            <dt class="col-sm-3">Competencias do candidato</dt>
+            <dt class="col-sm-3">Competências</dt>
             <dd class="col-sm-9">
                 <ul>
                     @foreach ($candidato->competencias as $competencia)
@@ -40,6 +40,16 @@
                 </ul>
             </dd>
         </dl> 
+        <div class="btn-group" role="group" aria-label="Exemplo básico">
+            <a href="{{ route('candidato.edit', $candidato->id)}}" class="btn btn-dark mr-2">Editar</a>
+        </div>
+        <div class="btn-group" role="group" aria-label="Exemplo básico">
+            <form action="{{ route('candidato.destroy', $candidato->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-outline-danger">Deletar candidato</button>
+            </form>
+        </div>
     </div>
 @endsection
 

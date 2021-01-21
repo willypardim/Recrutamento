@@ -62,6 +62,6 @@
     </div>
     <br>
     
-    <input type="submit" class="btn btn-primary mt-3" value="Cadastrar candidato">
+    <input type="submit" class="btn btn-primary mt-3" value="Finalizar">
 
     

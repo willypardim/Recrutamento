@@ -3,6 +3,7 @@
 @section('title', 'Home')
     
 @section('conteudo')
+    @include('candidatos.layouts.top-partial')
     <div class="container col-8 bg-white mt-3 p-4 text-center">
         <a href="{{ route('candidato.create') }}">É Programador? Cadastre-se para vagas!</a>
     </div>

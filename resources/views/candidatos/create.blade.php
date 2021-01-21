@@ -3,6 +3,7 @@
 @section('title', 'Cadastro candidato')
     
 @section('conteudo')
+    @include('candidatos.layouts.top-partial')
     <div class="container col-8 bg-white mt-5 p-5">
         <p class="lead text-center">
             <strong>
